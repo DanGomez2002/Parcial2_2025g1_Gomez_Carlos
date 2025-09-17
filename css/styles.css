@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
 html {
     scroll-behavior: smooth;
 }
@@ -216,4 +222,67 @@ h6,
     height: 250px; 
     width: 100%;
     object-fit: contain; 
+}
+/* Estilos para el Ticker de Tecnologías */
+.ticker-section {
+    background-color: var(--dark-color);
+    color: #ffffff;
+}
+
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.ticker {
+    display: inline-flex; /* Usamos flex para alinear los items */
+    white-space: nowrap;
+    animation: ticker-move 30s linear infinite;
+}
+
+.ticker span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 0 2rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+@keyframes ticker-move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Se mueve la mitad de su ancho total */
+    }
+}
+/* =================================== */
+/* 5. Estilos para el Menú Responsivo   */
+/* =================================== */
+@media (max-width: 991.98px) {
+    .navbar .navbar-collapse {
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .navbar .nav-item {
+        margin-bottom: 10px; /* Espacio entre los enlaces en vertical */
+    }
+
+    .navbar .nav-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .navbar .btn-cta {
+        width: 100%; /* El botón ocupa todo el ancho */
+    }
+}
+/* Corrección para el color del ícono del menú en móvil */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(52, 73, 94, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }

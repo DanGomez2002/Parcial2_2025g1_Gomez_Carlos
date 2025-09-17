@@ -169,16 +169,19 @@
         })();
     </script>
     <script>
-        // Lógica para el botón "Volver Arriba"
+        // Lógica para el botón "Volver Arriba" - VERSIÓN CORREGIDA Y SEGURA
         const backToTopButton = document.getElementById("back-to-top");
 
-        window.onscroll = function () {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        };
+        // Solo ejecuta el resto del código SI el botón existe en esta página
+        if (backToTopButton) {
+            window.onscroll = function () {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    backToTopButton.style.display = "block";
+                } else {
+                    backToTopButton.style.display = "none";
+                }
+            };
+        }
     </script>
     <a href="#" id="back-to-top" class="btn btn-primary shadow-lg rounded-circle"><i
             class="bi bi-arrow-up-short"></i></a>
