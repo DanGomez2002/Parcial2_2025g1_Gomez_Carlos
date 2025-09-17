@@ -1,9 +1,26 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
+
+body {
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -25,23 +42,17 @@ html {
 }
 
 /* =================================== */
-/* 1. Paleta de Colores y Variables    */
+/* Paleta de Colores y Variables    */
 /* =================================== */
-/* Opción 2: Paleta Elegante y Minimalista */
 :root {
     --primary-color: #e67e22;
-    /* Naranja como color de acento */
     --dark-color: #34495e;
-    /* Gris Pizarra Oscuro */
     --light-color: #f9f9f9;
-    /* Blanco Hueso */
     --body-font-color: #555555;
-    /* Gris medio para texto */
+
 }
 
-/* =================================== */
-/* 2. Tipografía Mejorada              */
-/* =================================== */
+/* Tipografía */
 body {
     font-family: 'Lato', sans-serif;
     color: var(--body-font-color);
@@ -58,9 +69,6 @@ h6,
     font-weight: 700;
 }
 
-/* =================================== */
-/* 3. Sobrescribir Estilos Bootstrap   */
-/* =================================== */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
@@ -79,11 +87,6 @@ h6,
     color: var(--primary-color) !important;
 }
 
-/* =================================== */
-/* 4. Estilos de Secciones Específicas */
-/* =================================== */
-
-
 /* Header / Barra de Navegación */
 .navbar {
     background-color: #ffffff !important;
@@ -98,11 +101,8 @@ h6,
 
 .navbar .nav-link {
     color: var(--body-font-color);
-    /* Usa el color de texto principal */
     font-weight: 600;
-    /* Hace los enlaces semi-gruesos */
     transition: color 0.3s ease;
-    /* --- Líneas añadidas --- */
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
@@ -112,57 +112,47 @@ h6,
     color: var(--primary-color);
 }
 
-/* Estilo específico para el botón de llamada a la acción en la navbar */
 .btn-cta {
     border-radius: 50px;
-    /* Bordes totalmente redondeados */
     padding: 8px 24px;
     font-weight: 700;
     text-transform: uppercase;
-    /* Texto en mayúsculas */
     font-size: 0.85rem;
 }
 
 /* Sección Hero */
-/* Sección Hero - VERSIÓN FINAL CON GRADIENTE Y OLA */
 #hero {
     position: relative;
-    /* Necesario para posicionar la ola */
     padding-top: 120px;
     padding-bottom: 120px;
-    /* Aumentamos el padding para la ola */
     color: #ffffff;
-    /* Cambiamos el color del texto a blanco */
     background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
 }
 
-/* Títulos dentro del nuevo Hero */
 #hero h1,
 #hero p {
     color: #ffffff;
 }
 
-/* La Ola (SVG) */
 #hero::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: -1px;
-    /* Para evitar líneas finas por anti-aliasing */
     width: 100%;
     height: 100px;
-    /* Altura de la ola */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,128L80,149.3C160,171,320,213,480,213.3C640,213,800,171,960,138.7C1120,107,1280,85,1360,74.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 #hero a.btn-primary {
     transition: all 0.2s ease-in-out;
 }
 
 #hero a.btn-primary:hover {
-    transform: translateY(-3px); /* Mueve el botón 3px hacia arriba */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Añade una sombra más pronunciada */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Sección Servicios - Tarjetas */
@@ -200,7 +190,6 @@ h6,
     color: var(--primary-color) !important;
 }
 
-/* Efecto hover para las tarjetas del equipo */
 #equipo .card {
     transition: all 0.3s ease-in-out;
     border-top: 4px solid transparent;
@@ -210,20 +199,23 @@ h6,
     transform: translateY(-5px);
     border-top-color: var(--primary-color);
 }
+
 /* Estilo para las fotos del equipo */
 .team-photo {
-    width: 150px;  /* Ancho fijo */
-    height: 150px; /* Alto fijo (igual al ancho para un círculo perfecto) */
-    object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
-    border-radius: 50%; /* La hace perfectamente circular */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
 }
+
 /* Estilo para unificar el tamaño de las imágenes del portafolio */
 .portfolio-item img {
-    height: 250px; 
+    height: 250px;
     width: 100%;
-    object-fit: contain; 
+    object-fit: contain;
 }
-/* Estilos para el Ticker de Tecnologías */
+
+/*Ticker de Tecnologías */
 .ticker-section {
     background-color: var(--dark-color);
     color: #ffffff;
@@ -236,7 +228,7 @@ h6,
 }
 
 .ticker {
-    display: inline-flex; /* Usamos flex para alinear los items */
+    display: inline-flex;
     white-space: nowrap;
     animation: ticker-move 30s linear infinite;
 }
@@ -254,24 +246,26 @@ h6,
     0% {
         transform: translateX(0);
     }
+
     100% {
-        transform: translateX(-50%); /* Se mueve la mitad de su ancho total */
+        transform: translateX(-50%);
+
     }
 }
-/* =================================== */
-/* 5. Estilos para el Menú Responsivo   */
-/* =================================== */
+
+/* Estilos para el Menú Responsivo   */
+
 @media (max-width: 991.98px) {
     .navbar .navbar-collapse {
         background-color: #ffffff;
         padding: 15px;
         border-radius: 8px;
         margin-top: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .navbar .nav-item {
-        margin-bottom: 10px; /* Espacio entre los enlaces en vertical */
+        margin-bottom: 10px;
     }
 
     .navbar .nav-item:last-child {
@@ -279,10 +273,24 @@ h6,
     }
 
     .navbar .btn-cta {
-        width: 100%; /* El botón ocupa todo el ancho */
+        width: 100%;
+
     }
 }
-/* Corrección para el color del ícono del menú en móvil */
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(52, 73, 94, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
 }
